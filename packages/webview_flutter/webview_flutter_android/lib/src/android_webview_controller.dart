@@ -405,6 +405,10 @@ class AndroidWebViewController extends PlatformWebViewController {
   Future<void> setUserAgent(String? userAgent) =>
       _webView.settings.setUserAgentString(userAgent);
 
+  @override
+  Future<void> addUserScript(String source) =>
+      _webView.evaluateJavascript(source);
+
   /// Sets the restrictions that apply on automatic media playback.
   Future<void> setMediaPlaybackRequiresUserGesture(bool require) {
     return _webView.settings.setMediaPlaybackRequiresUserGesture(require);

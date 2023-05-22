@@ -464,6 +464,16 @@ class WebKitWebViewController extends PlatformWebViewController {
   }
 
   @override
+  Future<void> addUserScript(String source) {
+    final WKUserScript script = WKUserScript(
+      source,
+      WKUserScriptInjectionTime.atDocumentStart,
+      isMainFrameOnly: false,
+    );
+    return _webView.configuration.userContentController.addUserScript(script);
+  }
+
+  @override
   Future<void> enableZoom(bool enabled) async {
     if (_zoomEnabled == enabled) {
       return;

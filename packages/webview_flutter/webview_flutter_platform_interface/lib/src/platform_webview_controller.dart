@@ -261,6 +261,12 @@ abstract class PlatformWebViewController extends PlatformInterface {
         'setUserAgent is not implemented on the current platform');
   }
 
+  /// Injects the specified script into the webpage’s content.
+  Future<void> addUserScript(String source) {
+    throw UnimplementedError(
+        'addUserScript is not implemented on the current platform');
+  }
+
   /// Sets a callback that notifies the host application that web content is
   /// requesting permission to access the specified resources.
   Future<void> setOnPlatformPermissionRequest(
